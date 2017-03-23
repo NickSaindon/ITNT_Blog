@@ -1,0 +1,123 @@
+<% provide(:page_title, @post.title) %>
+
+  <div class="container">
+
+      <div class="page-header">
+        <div class="header-topper" style='background-image: url(<%= @post.banner_image_url %>);'></div> 
+        <ol class="breadcrumb">
+         <li><%= link_to 'Home', root_path, class: 'btn btn-default btn-lg light2' %></li>
+        </ol>
+      </div>
+
+         <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+          <div class="blog-post">
+            <h2 class="blog-post-title"><%= @post.title %></h2>
+            <p class="blog-post-meta"><%= @post.display_day_published %></p>
+
+              <%= @post.body.html_safe %>
+
+          </div><!-- /.blog-post -->
+          <br>
+          <hr>
+
+
+            <div class="col-sm-8">
+
+               <div class="fb-like" data-href="<%= post_url %>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+               <div class="twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= post_url %>" data-via="ItntCreative" data-related="ItntCreative" data-hashtags="Webdesigner">Tweet</a></div>
+            </div><!-- /.Facebook Share Button -->
+
+          <br>
+            <hr>
+              <div class="container">
+                <div class="row">
+                  <%= render 'disqus' %>
+                </div>
+              </div><!-- /.disqus-->
+            <hr>
+        </div><!-- /.blog-main -->
+
+
+      <div class="col-sm-3 col-sm-offset-1 blog-sidebar text-center">
+        <div class="well">
+          <div class="sidebar-module">
+            <%= image_tag 'ITNT-Logo.png', class: 'img-responsive img-centered', width: '80px', alt: 'a face that is unnervingly happy'%>
+            <p>checkout the website and all the services we offer!</p>
+            
+            <%= link_to "Website", "http://itntcreativedesigns.com", :target => "_blank", class: 'btn btn-default btn-lg light2', style: 'text-align: center;' %>
+          </div>
+          </div>
+          <div class="well">
+          <div class="sidebar-module">
+            <h4>Archives</h4>
+            <ol class="list-unstyled">
+              <% @posts.blog_posts.each do |post| %>
+              <%= link_to post_path(post) do %>
+              <li><%= post.title%></li>
+              <% end %>
+              <% end %>
+            </ol>
+          </div>
+          </div>
+          <div class="well">
+          <div class="sidebar-module">
+            <h4>Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><%= link_to "Facebook", "https://www.facebook.com/itntcreativedesigns/", :target => "_blank" %></li>
+              <li><%= link_to "Twitter", "https://twitter.com/ItntCreative/", :target => "_blank" %></li>
+              <li><%= link_to "GitHub", "https://github.com/NickSaindon?tab=repositories", :target => "_blank" %></li>
+              <li><%= link_to "Youtube", "https://www.youtube.com/channel/UC_CiUOoh6v20u--Ncrdq0xA/", :target => "_blank" %></li>
+            </ol>
+          </div>
+        </div><!-- /.blog-sidebar -->
+      </div>
+      </div><!-- /.row -->
+   <hr>
+
+         <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h3>Latest Post</h3>
+            </div>
+        </div>
+        <!-- /.row -->
+        <!-- Page Features -->
+        <div class="row text-center latest-post">
+            <% @posted.related.each do |post| %>
+            <div class="col-md-3 col-sm-6 hero-feature clearfix">
+                <div class="thumbnail clearfix">
+                      <%= link_to post_path(post) do %>
+                         <div class="card-topper" style='background-image: url(<%= post.banner_image_url %>);'></div>  
+                      <% end %>
+                    <div class="caption">
+                        <h4><%= post.title %></h4>
+                        <p class="blog-post-meta"><%= @post.display_day_published %></p>
+                        <p>
+                          <%= link_to 'Read', post, class: 'btn btn-default light2' %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          <% end %>
+            
+        </div>
+        <!-- /.row -->
+        <hr>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+</div><!-- /.container -->
+
+<%= render 'shared/footer' %>

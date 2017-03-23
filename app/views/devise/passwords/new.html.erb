@@ -1,0 +1,28 @@
+<div class="container login">
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-2 col-md-4 col-md-offset-4">
+
+			 <div class="account-wall">
+
+
+			<h2 class="form-signin-heading text-center">Forgot your password?</h2>
+
+			<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <div class="field">
+			    
+			    <%= f.email_field :email, class: 'form-control', placeholder: 'Email', autofocus: true %>
+			  </div>
+
+			  <div class="actions">
+			    <%= f.submit "reset password", class: 'btn btn-lg btn-default btn-block'%>
+			  </div>
+			<% end %>
+
+				<br>
+				<%= render "devise/shared/links" %>
+
+			</div>
+		</div>
+	</div>

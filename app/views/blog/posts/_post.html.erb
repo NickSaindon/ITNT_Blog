@@ -1,0 +1,22 @@
+<div class="col-md-4 col-sm-6 portfolio-item">
+    
+    
+    <div class="portfolio-link" data-toggle="modal">
+    <%= link_to post do %>
+        <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+                <i class="fa fa-plus fa-3x"></i>
+            </div>
+        </div>
+        <div class="card-topper" style='background-image: url(<%= post.banner_image_url %>);'></div>             
+        <% end %>
+    </div>
+    
+    <div class="portfolio-caption">
+        <h4><%= post.title %></h4>
+        <p class="text-muted"><%= post.display_day_published %></p>
+        <p><%= truncate(post.description, length: 140) %></p>
+
+        <%= link_to 'Read', post, class: 'btn btn-default light2' %>
+    </div>
+</div>

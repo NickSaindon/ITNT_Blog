@@ -1,0 +1,10 @@
+<% provide(:page_title, "Edit #{@post.title}") %>
+<% provide(:admin, 'active') %>
+
+<%= render 'shared/adminNavbar' %>
+
+<div class="container-fluid">
+
+<%= render 'form', post: @post, url: admins_post_url(@post) %>
+
+</div>
