@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     end
   end
 
-  match '/contacts',     to: 'contacts#new', via: 'get'
+  match '/contacts',     to: 'contacts#new', via: 'post'
   resources "contacts", only: [:new, :create]
 
 
