@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   match '/contacts',     to: 'contacts#new', via: 'post'
   resources "contacts", only: [:new, :create]
+  resources:home
 
 
     scope module: 'blog' do
