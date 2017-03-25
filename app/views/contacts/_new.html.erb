@@ -48,32 +48,10 @@
     </section>
 
 <script>
-$(document).ready(function()
-{
  $(document).on('submit', '#new_contact', function()
  {
-  
-  var data = $(this).serialize();
-  
-  
-  $.ajax({
-  
-  type : 'GET',
-  url  : '<%= contacts_path %>',
-  data : data,
-  success :  function(data)
-       {
     
-      $("#new_contact").hide( 500 ).delay( 500 ).fadeOut( 200 ).after('<%= j render("contacts/create") %>'); 
-      {
+      $("#new_contact").hide( 500 ).delay( 500 ).fadeOut( 200 ).after('<%= j render("contacts/create") %>');  
 
-        $("#success").html(data);
-       }
-
-       }
-  });
-  return false;
- });
- 
-});
+       });
 </script>

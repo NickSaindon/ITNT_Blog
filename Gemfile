@@ -29,6 +29,7 @@ gem 'devise'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'mail_form'
 gem 'simple_form'
+gem 'responders'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
