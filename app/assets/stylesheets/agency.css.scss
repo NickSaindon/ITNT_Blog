@@ -20,6 +20,9 @@ p {
 p.large {
   font-size: 16px;
 }
+.show {
+  opacity: 1;
+}
 .clearfix:before,
 .clearfix:after {
   content: ""; 
@@ -33,6 +36,7 @@ p.large {
 #success {
   height: 529px;
   color: #fff;
+  opacity: 1;
 }
 
 #success h2 {
