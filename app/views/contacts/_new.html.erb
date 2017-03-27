@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-lg-12">
 
-                    <%= simple_form_for @contact = Contact.new, remote: true do |f| %>
+                    <%= form_for @contact ||= Contact.new, remote: true do |f| %>
 
                         <div class="row">
                             <div class="col-md-6">
@@ -53,5 +53,5 @@
     
       $("#new_contact").hide( 500 ).delay( 500 ).fadeOut( 200 ).after('<%= j render("contacts/create") %>');  
 
-       });
+});
 </script>
